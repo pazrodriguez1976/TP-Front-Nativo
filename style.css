@@ -1,0 +1,196 @@
+:root {
+    --color-marca: #de2b24; 
+    --color-marca-oscuro: #b51c16;
+    --bg-main: #de2b24; 
+    --bg-body: #fcfcfc; 
+    --bg-card: #ffffff; 
+    --texto-oscuro: #2d2926;
+    --texto-claro: #7a7571;
+    --texto-en-rojo: #ffffff; 
+    --radio-borde: 12px; 
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--texto-oscuro);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.app-wrapper {
+    max-width: 1200px; 
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; 
+}
+
+.main-header {
+    background: var(--bg-card);
+    padding: 20px 0; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    max-height: 100px; 
+    width: auto;
+}
+
+.header-actions { 
+    display: flex; 
+    align-items: center;
+    gap: 30px; 
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: var(--texto-oscuro); 
+    transition: opacity 0.2s;
+}
+
+.action-item:hover { opacity: 0.7; }
+
+
+.header-actions .action-item.favorites,
+.header-actions .action-item.cart {
+    color: var(--color-marca); 
+}
+
+.action-icon {
+    font-size: 1.4rem;
+    font-weight: 300; 
+}
+
+.action-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.75rem;
+    line-height: 1.3;
+}
+
+.action-text strong {
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.icon-only .action-icon { font-size: 1.6rem; }
+
+.main-content {
+    background-color: var(--bg-main); 
+    padding: 40px;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.title-section { text-align: left; }
+.title-section h1 { font-size: 2.2rem; color: var(--texto-en-rojo); font-weight: 400;}
+.title-section p { color: #f1f5f9; font-size: 1.1rem; } 
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; 
+}
+
+.product-card {
+    background-color: var(--bg-card); 
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.img-container {
+    width: 100%;
+    height: 190px; 
+    background-color: #ffffff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+    border-bottom: 1px solid #eeeeee;
+}
+
+.product-img {
+    max-width: 90%; 
+    max-height: 250px; 
+    object-fit: contain;
+    mix-blend-mode: multiply; 
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-body h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--texto-oscuro); font-weight: 600; }
+.price { font-weight: 700; color: var(--color-marca); font-size: 1.25rem; }
+
+
+.social-footer {
+    background-color: white;
+    padding: 25px;
+    border-radius: var(--radio-borde);
+    margin-top: 40px;
+    border: 1px solid #eeeeee;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--color-marca); 
+    font-weight: 600;
+    padding: 14px 30px;
+    border: 1px solid var(--color-marca); 
+    border-radius: 50px; 
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.social-icon:hover { 
+    background-color: var(--color-marca); 
+    color: white; 
+}
+
+@media (max-width: 900px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .header-actions { gap: 15px; }
+    .action-text { display: none; } 
+}
+@media (max-width: 600px) {
+    .product-grid { grid-template-columns: 1fr; }
+    .main-content { padding: 20px; }
+}
